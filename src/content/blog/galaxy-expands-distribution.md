@@ -4,7 +4,7 @@ description: "New cold-chain facilities enable safer delivery of specialty thera
 publishDate: 2024-03-12
 author: "Ardit Kola"
 heroImage:
-  src: "/blog/cold-chain.svg"
+  src: "./blog/cold-chain.svg"
   alt: "Cold chain pharmaceutical facility"
 tags:
   - operations
