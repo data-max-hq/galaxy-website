@@ -11,6 +11,8 @@ npm run dev
 
 Visit http://localhost:4321 to preview the site. Content edits trigger instant reloads.
 
+Visit: https://data-max-hq.github.io/galaxy-website/ to see the page live.
+
 ## Content & Structure
 
 - `src/pages/index.astro` – primary landing page with hero, about, partners, blog teaser, and contact sections.
