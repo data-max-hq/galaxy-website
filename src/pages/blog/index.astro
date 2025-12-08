@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+---
+
+<Layout title="Galaxy Insights" description="Regulatory, logistics, and quality insights from Galaxy and Profarma Group.">
+	<main class="mx-auto max-w-5xl px-6 py-16">
+		<section class="mb-12 text-center">
+			<p class="text-sm uppercase tracking-[0.4em] text-slate-400">Galaxy Blog</p>
+			<h1 class="mt-4 text-4xl font-semibold text-white">Regulatory clarity. Operational precision.</h1>
+			<p class="mt-3 text-lg text-slate-300">
+				Stories from the teams accelerating pharmaceutical access throughout Albania.
+			</p>
+		</section>
+		<div class="grid gap-6">
+			{posts.map((post) => (
+				<a
+					href={`/blog/${post.slug}/`}
+					key={post.id}
+					class="glow-card flex flex-col overflow-hidden rounded-3xl border border-white/5 transition hover:border-white/30"
+				>
+					{post.data.heroImage && (
+						<img src={post.data.heroImage.src} alt={post.data.heroImage.alt} class="h-64 w-full object-cover" loading="lazy" />
+					)}
+					<div class="flex flex-col gap-4 p-6 text-left">
+						<p class="text-xs uppercase tracking-[0.4em] text-slate-400">
+							{post.data.publishDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+						</p>
+						<h2 class="text-2xl font-semibold text-white">{post.data.title}</h2>
+						<p class="text-base text-slate-300">{post.data.description}</p>
+						<div class="flex flex-wrap gap-2 text-xs text-slate-400">
+							{post.data.tags?.map((tag) => (
+								<span class="rounded-full border border-white/10 px-3 py-1" key={tag}>#{tag}</span>
+							))}
+						</div>
+					</div>
+				</a>
+			))}
+		</div>
+	</main>
+</Layout>

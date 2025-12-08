@@ -1,0 +1,22 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#122850" />
+      <stop offset="100%" stop-color="#050b1a" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#grid)" />
+  <g stroke="#13f6c8" stroke-opacity="0.45">
+    <path d="M0 80h1200M0 160h1200M0 240h1200M0 320h1200M0 400h1200M0 480h1200M0 560h1200M0 640h1200" />
+    <path d="M120 0v720M240 0v720M360 0v720M480 0v720M600 0v720M720 0v720M840 0v720M960 0v720M1080 0v720" />
+  </g>
+  <g fill="#13f6c8" fill-opacity="0.8">
+    <circle cx="280" cy="220" r="14" />
+    <circle cx="620" cy="360" r="18" />
+    <circle cx="940" cy="280" r="16" />
+    <circle cx="520" cy="520" r="12" />
+  </g>
+  <g stroke="#13f6c8" stroke-width="2">
+    <path d="M280 220L620 360L940 280L520 520Z" fill="none" />
+  </g>
+</svg>
