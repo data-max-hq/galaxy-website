@@ -4,7 +4,7 @@ description: "Key lessons from thirty years of dossier management and pharmacovi
 publishDate: 2024-02-02
 author: "Erisa Spahiu"
 heroImage:
-  src: "./blog/regulatory.svg"
+  src: "/blog/regulatory.svg"
   alt: "Regulatory review illustration"
 tags:
   - regulatory

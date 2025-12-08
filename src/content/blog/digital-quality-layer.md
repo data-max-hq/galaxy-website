@@ -4,7 +4,7 @@ description: "How connected sensors and predictive analytics elevate GDP complia
 publishDate: 2023-11-18
 author: "Galaxy Digital"
 heroImage:
-  src: "./blog/digital-quality.svg"
+  src: "/blog/digital-quality.svg"
   alt: "Digital monitoring network"
 tags:
   - technology
