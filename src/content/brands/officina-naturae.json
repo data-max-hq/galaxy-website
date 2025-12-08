@@ -1,0 +1,22 @@
+{
+  "name": "Officina Naturae",
+  "tagline": "Eco-friendly personal care crafted in Italy",
+  "description": "Officina Naturae delivers sustainable dermo-cosmetics and hygiene solutions that combine botanical science with circular packaging.",
+  "website": "https://example.com/officina-naturae",
+  "logo": "/brands/officina_naturae.png",
+  "featuredColor": "#0d6b4b",
+  "products": [
+    { "name": "Eco Defense Toothpaste", "category": "Oral Care", "description": "Mint and sage formula in recyclable tube." },
+    { "name": "Gentle Detox Shampoo", "category": "Hair", "description": "Clay-enriched formula for clarity." },
+    { "name": "Balancing Face Mist", "category": "Skincare", "description": "Rosemary hydrosol with hyaluronic acid." },
+    { "name": "Silky Repair Conditioner", "category": "Hair", "description": "Shea butter and quinoa proteins." },
+    { "name": "Ocean Safe Body Wash", "category": "Body", "description": "Biodegradable surfactants with algae extract." },
+    { "name": "Nourish Hand Cream", "category": "Body", "description": "Almond oil and vitamin E for dryness." },
+    { "name": "Radiance Face Serum", "category": "Skincare", "description": "Vitamin C and ferulic acid boost." },
+    { "name": "Green Home Multi Cleaner", "category": "Home", "description": "Plant-based cleanser concentrate." },
+    { "name": "Kids Bubble Bath", "category": "Pediatric", "description": "Tear-free calendula and oat base." },
+    { "name": "Protective Deo Balm", "category": "Body", "description": "Aluminum-free balm with tea tree." },
+    { "name": "Soft Touch Lip Balm", "category": "Skincare", "description": "Cocoa butter and jojoba oil." },
+    { "name": "Refill Laundry Gel", "category": "Home", "description": "Concentrated detergent for sensitive skin." }
+  ]
+}

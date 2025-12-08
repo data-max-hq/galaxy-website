@@ -8,6 +8,7 @@ const posts = blogEntries
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
   .slice(0, 3);
 const partners = await getCollection('partners');
+const brands = await getCollection('brands');
 ---
 
 <Layout
@@ -39,23 +40,23 @@ const partners = await getCollection('partners');
           <div class="space-y-6">
             <p class="text-xs uppercase tracking-[0.4em] text-white/70">Profarma Group</p>
             <h1 class="text-4xl font-semibold leading-tight sm:text-5xl">
-              Empowering Albanian healthcare with technology-driven distribution.
+              Shining a light on health across Albania.
             </h1>
             <p class="text-lg text-white/80">
-              Galaxy blends Profarma's 30+ years of production and regulatory mastery with nationwide logistics, ensuring every therapy reaches clinicians quickly, safely, and compliantly.
+              Galaxy SHPK, part of Profarma Group, keeps 1,400 therapies moving to 1,000 pharmacies with GDP-certified stewardship so every launch arrives fast, safe, and compliant.
             </p>
             <div class="grid gap-6 text-sm sm:grid-cols-3">
               <div>
-                <p class="text-3xl font-semibold">30+</p>
-                <p class="uppercase tracking-[0.2em] text-white/70">Years active</p>
+                <p class="text-3xl font-semibold">1,400+</p>
+                <p class="uppercase tracking-[0.2em] text-white/70">Products distributed</p>
+              </div>
+              <div>
+                <p class="text-3xl font-semibold">1,000+</p>
+                <p class="uppercase tracking-[0.2em] text-white/70">Pharmacies served</p>
               </div>
               <div>
                 <p class="text-3xl font-semibold">24h</p>
                 <p class="uppercase tracking-[0.2em] text-white/70">National reach</p>
-              </div>
-              <div>
-                <p class="text-3xl font-semibold">GDP</p>
-                <p class="uppercase tracking-[0.2em] text-white/70">Certified</p>
               </div>
             </div>
             <div class="flex flex-wrap gap-4">
@@ -94,7 +95,7 @@ const partners = await getCollection('partners');
             A Profarma Group company uniting production, regulatory affairs, and national distribution.
           </h2>
           <p class="text-lg text-[var(--muted)]">
-            From dossier management and pharmacovigilance to last-mile fulfillment, Galaxy is the single accountable partner for innovators entering Albania. Our teams orchestrate each stage with transparent data, certified facilities, and people who understand the realities of Albanian healthcare.
+            From dossier management and pharmacovigilance to last-mile fulfillment, Galaxy is the single accountable partner for innovators entering Albania. Our teams orchestrate each stage with transparent data, certified facilities, and people who understand the realities of Albanian healthcare—because our mission is shining a light on health for every patient we reach.
           </p>
           <div class="grid gap-6 sm:grid-cols-2">
             <div class="rounded-2xl border border-black/5 bg-[var(--page)] p-5">
@@ -110,9 +111,9 @@ const partners = await getCollection('partners');
         <div class="relative">
           <div class="h-full rounded-[2rem] bg-gradient-to-br from-[#d2e7ff] via-white to-[#f5f8fb] p-10">
             <div class="space-y-4 text-[var(--slate)]">
-              <p class="text-sm uppercase tracking-[0.4em] text-[var(--muted)]">Vision</p>
+              <p class="text-sm uppercase tracking-[0.4em] text-[var(--muted)]">Mission</p>
               <p class="text-lg font-medium">
-                Enable every Albanian hospital, pharmacy, and clinician to access breakthrough therapies the moment they are authorized, without compromising compliance or speed.
+                Shining a light on health means coordinating production, regulatory, and distribution so 1,000 pharmacies and hospitals can access 1,400 therapies the moment they are authorized.
               </p>
               <div class="mt-6 rounded-2xl bg-white/80 p-5 text-sm text-[var(--muted)] shadow-inner">
                 "Galaxy acts like an extension of our launch teams—aligning regulatory, market, and supply milestones from day zero." – Profarma Group Leadership
@@ -215,6 +216,44 @@ const partners = await getCollection('partners');
         </div>
       </section>
 
+      <section id="brands" class="space-y-8" data-animate>
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">Brands</p>
+            <h2 class="text-3xl font-semibold text-[var(--slate)]">Featured portfolio lines.</h2>
+          </div>
+          <div class="flex gap-3">
+            <button type="button" class="rounded-full border border-black/10 px-4 py-2 text-sm" data-carousel-prev>Prev</button>
+            <button type="button" class="rounded-full border border-black/10 px-4 py-2 text-sm" data-carousel-next>Next</button>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar" data-brand-carousel>
+            {brands.map((brand) => (
+              <a
+                href={`/brands/${brand.id}/`}
+                class="glow-card min-w-[260px] flex-1 rounded-3xl p-6 transition hover:-translate-y-1"
+                style={`border-top: 4px solid ${brand.data.featuredColor};`}
+              >
+                <div class="flex items-center gap-3">
+                  {brand.data.logo && (
+                    <div class="flex h-16 w-16 items-center justify-center rounded-2xl border border-black/5 bg-white shadow-sm">
+                      <img src={brand.data.logo} alt={`${brand.data.name} logo`} class="max-h-12 max-w-12 object-contain" />
+                    </div>
+                  )}
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.35em] text-[var(--muted)]">Therapies</p>
+                    <h3 class="text-xl font-semibold text-[var(--slate)]">{brand.data.name}</h3>
+                  </div>
+                </div>
+                <p class="mt-2 text-sm text-[var(--muted)]">{brand.data.tagline}</p>
+                <span class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">View products →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section
         id="contact"
         class="grid gap-10 rounded-[2.5rem] border border-black/5 bg-white p-10 shadow-[0_25px_60px_rgba(8,20,43,0.08)] md:grid-cols-[1.2fr_1fr]"
@@ -244,15 +283,15 @@ const partners = await getCollection('partners');
         </div>
         <div class="glow-card rounded-3xl p-6 text-sm text-[var(--muted)]">
           <h3 class="text-lg font-semibold text-[var(--slate)]">Headquarters</h3>
-          <p>Tirana, Albania</p>
-          <p class="mt-1 text-[var(--muted)]">Profarma Industrial Park</p>
+          <p>Skënder Vila, Tirana</p>
+          <p class="mt-1 text-[var(--muted)]">Albania</p>
           <div class="mt-4 space-y-1">
             <p class="font-semibold text-[var(--slate)]">Email</p>
-            <a href="mailto:connect@galaxy.al" class="text-[var(--accent)]">connect@galaxy.al</a>
+            <a href="mailto:info@galaxy.al" class="text-[var(--accent)]">info@galaxy.al</a>
           </div>
           <div class="mt-4 space-y-1">
             <p class="font-semibold text-[var(--slate)]">Phone</p>
-            <a href="tel:+35542000000" class="text-[var(--accent)]">+355 4 200 0000</a>
+            <a href="tel:+355684022022" class="text-[var(--accent)]">+355 68 402 2022</a>
           </div>
           <div class="mt-6 rounded-2xl border border-black/5 bg-[var(--page)] p-4 text-xs text-[var(--muted)]">
             <p>Response time</p>
@@ -320,6 +359,19 @@ const partners = await getCollection('partners');
       };
 
       type();
+    }
+
+    const carousel = document.querySelector('[data-brand-carousel]');
+    const prevBtn = document.querySelector('[data-carousel-prev]');
+    const nextBtn = document.querySelector('[data-carousel-next]');
+    if (carousel && prevBtn && nextBtn) {
+      const scrollByAmount = () => carousel.clientWidth * 0.8;
+      prevBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: scrollByAmount(), behavior: 'smooth' });
+      });
     }
   </script>
 </Layout>

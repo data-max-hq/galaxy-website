@@ -1,0 +1,22 @@
+{
+  "name": "NeoKids",
+  "tagline": "Therapies crafted for young patients",
+  "description": "NeoKids focuses on pediatric nutritionals, dermo-cosmetics, and gentle OTC solutions trusted by Albanian parents.",
+  "website": "https://example.com/neokids",
+  "logo": "/brands/neokids.png",
+  "featuredColor": "#f06c3b",
+  "products": [
+    { "name": "NeoKids Fever Relief", "category": "OTC", "description": "Paracetamol suspension with dosing syringe." },
+    { "name": "Soothing Chest Rub", "category": "Respiratory", "description": "Mild menthol and lavender balm." },
+    { "name": "Daily Probiotic Drops", "category": "Gut Health", "description": "Lactobacillus GG drops for infants." },
+    { "name": "Sun Shield Lotion SPF30", "category": "Dermatology", "description": "Water-resistant mineral sunscreen." },
+    { "name": "Nasal Spray Gentle", "category": "Respiratory", "description": "Isotonic saline with aloe." },
+    { "name": "Vitamin D3 Drops", "category": "Foundational", "description": "400 IU per drop for bone support." },
+    { "name": "Allergy Calm Syrup", "category": "Allergy", "description": "Non-drowsy antihistamine blend." },
+    { "name": "Electrolyte Ice Pops", "category": "Hydration", "description": "ORS popsicles for recovery." },
+    { "name": "Gentle Bath Oil", "category": "Dermatology", "description": "Ceramide-rich cleansing oil." },
+    { "name": "Immune Shield Gummies", "category": "Immune", "description": "Elderberry and vitamin C bears." },
+    { "name": "Teething Relief Gel", "category": "OTC", "description": "Chamomile & xylitol soothing gel." },
+    { "name": "NeoKids Multivitamin", "category": "Pediatric", "description": "Complete chewables for ages 4+." }
+  ]
+}

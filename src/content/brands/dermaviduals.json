@@ -1,0 +1,22 @@
+{
+  "name": "Dermaviduals",
+  "tagline": "Corneotherapy skincare customization",
+  "description": "Dermaviduals offers modular dermatological care tailored to barrier repair and sensitive skin protocols.",
+  "website": "https://example.com/dermaviduals",
+  "logo": "/brands/dermaviduals.png",
+  "featuredColor": "#0c4c7a",
+  "products": [
+    { "name": "Barrier Repair Cream", "category": "Moisturizer", "description": "Lamellar lipids to restore skin matrix." },
+    { "name": "Calming Base Gel", "category": "Serum", "description": "Aloe, D-panthenol, and glycerin." },
+    { "name": "Vitamin A Plus", "category": "Treatment", "description": "Encapsulated retinyl palmitate." },
+    { "name": "Enzyme Peeling Mask", "category": "Exfoliant", "description": "Papain-based gentle exfoliation." },
+    { "name": "Couperose Concentrate", "category": "Serum", "description": "Rutin and butcher's broom for redness." },
+    { "name": "Cleansing Milk", "category": "Cleanser", "description": "Soap-free emulsion for delicate skin." },
+    { "name": "Hyaluron NMF", "category": "Hydration", "description": "Multi-weight hyaluronic boost." },
+    { "name": "Protective Tinted Cream", "category": "SPF", "description": "Mineral shield with light tint." },
+    { "name": "Eye Gel Plus", "category": "Eye Care", "description": "Peptides targeting puffiness." },
+    { "name": "Scar Guard Serum", "category": "Treatment", "description": "Silicone-free complex for texture." },
+    { "name": "Liposome Concentrate", "category": "Serum", "description": "Niacinamide and antioxidants." },
+    { "name": "Neck & Décolleté Cream", "category": "Body", "description": "Firming peptides and ceramides." }
+  ]
+}

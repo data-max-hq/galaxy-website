@@ -1,0 +1,22 @@
+{
+  "name": "Vitamunda",
+  "tagline": "Clinical-grade nutraceutical protocols",
+  "description": "Vitamunda specializes in gut, detox, and metabolic formulas used by integrative physicians across Europe.",
+  "website": "https://example.com/vitamunda",
+  "logo": "/brands/vitamunda.png",
+  "featuredColor": "#7423c9",
+  "products": [
+    { "name": "Advanced Liver Reset", "category": "Detox", "description": "Milk thistle, NAC, and artichoke blend." },
+    { "name": "Microbiome Harmony", "category": "Gut Health", "description": "12-strain probiotic with prebiotic fiber." },
+    { "name": "Glucose Steady", "category": "Metabolic", "description": "Berberine and chromium complex." },
+    { "name": "Inflammation Guard", "category": "Anti-Inflammatory", "description": "Curcumin phytosome and boswellia." },
+    { "name": "ElectroCleanse", "category": "Detox", "description": "Electrolyte + herbal hydration mix." },
+    { "name": "Brain Focus Powder", "category": "Cognitive", "description": "Lion's mane, B12, and acetyl-L-carnitine." },
+    { "name": "Adrenal Restore", "category": "Adaptogens", "description": "Licorice, ashwagandha, and vitamin C." },
+    { "name": "Omega Balance 900", "category": "Cardio", "description": "High-potency triglyceride-form omega-3." },
+    { "name": "Mineral Matrix", "category": "Foundational", "description": "Chelated magnesium, zinc, and selenium." },
+    { "name": "VitaFiber Cleanse", "category": "Gut Health", "description": "Acacia fiber with soothing botanicals." },
+    { "name": "Sleep Restore", "category": "Sleep", "description": "GABA, theanine, and passionflower." },
+    { "name": "Immune Matrix IV", "category": "Immune", "description": "Vitamin D3/K2 and beta-glucans." }
+  ]
+}

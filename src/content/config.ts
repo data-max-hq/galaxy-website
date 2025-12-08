@@ -28,4 +28,23 @@ const partners = defineCollection({
   }),
 });
 
-export const collections = { blog, partners };
+const brands = defineCollection({
+  type: 'data',
+  schema: z.object({
+    name: z.string(),
+    tagline: z.string(),
+    description: z.string(),
+    website: z.string().url().optional(),
+    featuredColor: z.string().default('#0f1e38'),
+    logo: z.string().optional(),
+    products: z.array(
+      z.object({
+        name: z.string(),
+        category: z.string(),
+        description: z.string(),
+      }),
+    ),
+  }),
+});
+
+export const collections = { blog, partners, brands };

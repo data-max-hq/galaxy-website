@@ -1,0 +1,22 @@
+{
+  "name": "7Days",
+  "tagline": "Daily wellness support trusted by clinicians",
+  "description": "The 7Days line focuses on immune, digestive, and metabolic supplements designed for Albanian families seeking dependable formulations.",
+  "website": "https://example.com/7days",
+  "logo": "/brands/7days.png",
+  "featuredColor": "#0b3cde",
+  "products": [
+    { "name": "Immune Guard Gummies", "category": "Immune", "description": "Vitamin C, zinc, and elderberry chewables." },
+    { "name": "Metabolic Balance Capsules", "category": "Metabolic", "description": "Chromium and B-complex support for energy." },
+    { "name": "Calm Nights Syrup", "category": "Sleep", "description": "Melatonin-free botanical blend for restful nights." },
+    { "name": "Kids Multis", "category": "Pediatric", "description": "Complete multivitamin with iron and D3." },
+    { "name": "Cardio Omega Softgels", "category": "Cardio", "description": "EPA/DHA sourced from sustainable fish oils." },
+    { "name": "Hydration Boost Powder", "category": "Electrolytes", "description": "Balanced electrolytes for everyday recovery." },
+    { "name": "Joint Flex Tablets", "category": "Mobility", "description": "Glucosamine, MSM, and turmeric complex." },
+    { "name": "Respiratory Ease Lozenges", "category": "Respiratory", "description": "Eucalyptus and propolis soothing lozenges." },
+    { "name": "Prenatal Complete", "category": "Prenatal", "description": "Folate, choline, and DHA for expecting mothers." },
+    { "name": "Stress Reset Drops", "category": "Adaptogens", "description": "Ashwagandha and rhodiola liquid complex." },
+    { "name": "ElectraKids Oral Rehydration", "category": "Pediatric", "description": "ORS sachets flavored for children." },
+    { "name": "Vision Care Capsules", "category": "Ophthalmic", "description": "Lutein, zeaxanthin, and antioxidants." }
+  ]
+}
