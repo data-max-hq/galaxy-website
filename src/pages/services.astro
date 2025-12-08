@@ -6,37 +6,62 @@ const services = [
     id: 'gmp-2',
     title: 'Good Distribution Practices',
     excerpt:
-      'Galaxy applies Good Distribution Practices and Good Manufacturing Practices to guarantee quality and safety. Every storage, handling, and transport step stays under documented control so product integrity meets Albanian and international expectations.',
+      'Galaxy applies Good Distribution Practices and Good Manufacturing Practices so every storage, handling, and transport step stays documented and controlled.',
+    details: [
+      'Products are stored, handled, and distributed under monitored conditions that preserve integrity.',
+      'Quality teams run continual checks to meet Albanian MoH and international requirements.',
+    ],
   },
   {
     id: 'wms',
     title: 'Warehouse Management System',
     excerpt:
-      'A dedicated WMS orchestrates goods receiving, inventory tracking, order picking, packing, and shipping. The system delivers real-time stock visibility, fewer errors, faster turnarounds, and reliable deliveries for pharmacies and hospitals.',
+      'A dedicated WMS orchestrates goods receiving, inventory tracking, order picking, packing, and shipping.',
+    details: [
+      'Real-time visibility prevents stock-outs, reduces errors, and lowers operating costs.',
+      'Predictable turnarounds keep pharmacies and hospitals supplied exactly when they need therapies.',
+    ],
   },
   {
     id: 'erp',
     title: 'Enterprise Resource Planning',
     excerpt:
-      'Our ERP platform unifies finance, sales, procurement, production, inventory, HR, and customer relationships into one data model. Integrated workflows reduce manual effort, lower operational costs, and speed up decision-making.',
+      'Our ERP platform unifies finance, sales, procurement, production, inventory, HR, and customer relationships into one data model.',
+    details: [
+      'Connected workflows reduce manual handoffs and improve accuracy across teams.',
+      'Faster, data-driven decisions lower operational costs and align planning cycles.',
+    ],
   },
   {
     id: 'regulatory',
     title: 'Regulatory Affairs',
     excerpt:
-      'A specialized department tracks dossiers and vigilance activities so medicines, medical devices, and other products meet safety, quality, and efficacy standards. Purpose-built warehouses guarantee traceability for every Profarma Group launch.',
+      'A specialized department tracks dossiers and vigilance activities so medicines, medical devices, and other products meet safety, quality, and efficacy standards.',
+    details: [
+      'Purpose-built warehouses meet the strictest requirements for effectiveness and traceability.',
+      'Part of Profarma Group, the team secures reliable pharmacovigilance and submission follow-up.',
+    ],
   },
   {
     id: 'logistics',
     title: 'Distribution & Logistics',
     excerpt:
-      'Database-backed traceability, WMS-enabled warehouses, ERP integrations, FEFO execution, cold rooms, blackout management (24/7 generators and backup systems), and national training plans ensure compliant deliveries every day.',
+      'Database-backed traceability, WMS-enabled warehouses, and ERP integrations support compliant deliveries nationwide.',
+    details: [
+      'FEFO system, excellent storage conditions, and cold-store availability.',
+      'Blackout management with 24/7 generators, accumulator backups, and database monitoring.',
+      'Training plans aligned with national guidelines keep teams audit ready.',
+    ],
   },
   {
     id: 'marketing',
     title: 'Marketing Activities',
     excerpt:
-      'Medical representatives covering around 96% of Albania present innovative, safe, and qualitative medications. We prepare medical information across therapeutic areas for public hospitals, private clinics, polyclinics, and the broader healthcare system.',
+      'Medical representatives covering around 96% of Albania deliver innovative, safe, and qualitative medications to healthcare professionals.',
+    details: [
+      'Promotional activities span doctors, pharmacists, and patients with tailored messaging.',
+      'We prepare medical information for every therapeutic area across hospitals, clinics, and polyclinics.',
+    ],
   },
 ];
 
@@ -46,6 +71,7 @@ const homeUrl = import.meta.env.BASE_URL ?? '/';
 <Layout
   title="Galaxy | Services"
   description="Explore Galaxy’s integrated services spanning regulatory affairs, logistics, marketing, and digital systems for the Albanian healthcare market."
+  showGlobalNav
 >
   <main class="mx-auto max-w-6xl px-6 py-16">
     <a href={homeUrl} class="text-sm text-[var(--accent)]">← Back to home</a>
@@ -68,6 +94,13 @@ const homeUrl = import.meta.env.BASE_URL ?? '/';
           <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">{service.id}</p>
           <h2 class="mt-3 text-2xl font-semibold text-[var(--slate)]">{service.title}</h2>
           <p class="mt-3 text-[var(--muted)]">{service.excerpt}</p>
+          {service.details && (
+            <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-[var(--muted)]">
+              {service.details.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
+          )}
           <button class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">
             Read more
             <span aria-hidden="true">→</span>

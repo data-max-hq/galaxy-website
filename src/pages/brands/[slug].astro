@@ -19,7 +19,7 @@ const brandsAnchor = `${import.meta.env.BASE_URL}#brands`;
 const homeUrl = import.meta.env.BASE_URL ?? '/';
 ---
 
-<Layout title={`${brand.data.name} | Galaxy Brands`} description={brand.data.description}>
+<Layout title={`${brand.data.name} | Galaxy Brands`} description={brand.data.description} showGlobalNav>
   <section class="bg-white py-16">
     <div class="mx-auto max-w-5xl px-6">
       <div class="flex flex-wrap gap-4 text-sm text-[var(--accent)]">

@@ -7,7 +7,10 @@ interface PartnerEntry {
   category: string;
   description: string;
   ctaLabel: string;
+  logo?: string;
 }
+
+const withBase = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/g, '')}`;
 
 const partners: PartnerEntry[] = [
   {
@@ -17,6 +20,7 @@ const partners: PartnerEntry[] = [
     description:
       'Profarma is the only Albanian-speaking pharmaceutical manufacturing company, carrying a 70-year legacy of caring for patients and healthcare professionals.',
     ctaLabel: 'Visit Profarma',
+    logo: withBase('logos/profarma.svg'),
   },
   {
     id: 'dermaviduals',
@@ -25,6 +29,7 @@ const partners: PartnerEntry[] = [
     description:
       'Dermaviduals® delivers preventive care that keeps problem skin at bay while supplying dermaceutical solutions able to significantly improve complexions that need extra support.',
     ctaLabel: 'View products',
+    logo: withBase('brands/dermaviduals.png'),
   },
   {
     id: '3chenes',
@@ -41,6 +46,7 @@ const partners: PartnerEntry[] = [
     description:
       'Nature-inspired supplements for children and adults made with medicinal herbs, mushrooms, trace elements, vitamins, and minerals.',
     ctaLabel: 'View products',
+    logo: withBase('brands/neokids.png'),
   },
   {
     id: 'rokivit',
@@ -65,6 +71,7 @@ const partners: PartnerEntry[] = [
     description:
       '7DAYS is a playful cosmetics trendsetter beloved for its bold concepts, eye-catching design, product quality, and transparent mindset.',
     ctaLabel: 'View products',
+    logo: withBase('brands/7days.png'),
   },
   {
     id: 'mentholatum',
@@ -81,6 +88,7 @@ const partners: PartnerEntry[] = [
     description:
       'Officina naturae designs excellent, truly effective cosmetics and detergents that are safe for people and nature alike.',
     ctaLabel: 'View products',
+    logo: withBase('brands/officina_naturae.png'),
   },
   {
     id: 'balene',
@@ -97,6 +105,7 @@ const partners: PartnerEntry[] = [
     description:
       'Vitamunda formulates supplements that help the body function optimally while supporting its natural recovery processes.',
     ctaLabel: 'View products',
+    logo: withBase('brands/vitamunda.png'),
   },
 ];
 
@@ -114,6 +123,7 @@ const homeUrl = import.meta.env.BASE_URL ?? '/';
 <Layout
   title="Galaxy | Partners"
   description="Meet the partner brands powering Galaxy’s Albanian healthcare distribution network."
+  showGlobalNav
 >
   <main class="mx-auto max-w-6xl px-6 py-16">
     <a href={homeUrl} class="text-sm text-[var(--accent)]">← Back to home</a>
@@ -132,8 +142,12 @@ const homeUrl = import.meta.env.BASE_URL ?? '/';
       {partners.map((partner) => (
         <article class="rounded-3xl border border-black/5 bg-white/90 p-6 shadow-sm backdrop-blur-sm">
           <div class="flex items-start gap-4">
-            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--page)] text-base font-semibold text-[var(--accent)]">
-              {initialsFor(partner.name)}
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--page)] p-2">
+              {partner.logo ? (
+                <img src={partner.logo} alt={`${partner.name} logo`} class="h-full w-full object-contain" />
+              ) : (
+                <span class="text-base font-semibold text-[var(--accent)]">{initialsFor(partner.name)}</span>
+              )}
             </div>
             <div>
               <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">{partner.category}</p>

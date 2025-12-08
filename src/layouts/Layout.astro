@@ -1,17 +1,28 @@
 ---
 import '../styles/global.css';
+import Logo from '../assets/logo.png';
 
 interface Props {
 	title?: string;
 	description?: string;
+	showGlobalNav?: boolean;
 }
 
 const {
 	title = 'Galaxy Pharmaceutical Distribution',
 	description = 'Profarma Group subsidiary delivering pharmaceuticals with precision across Albania.',
+  showGlobalNav = false,
 } = Astro.props as Props;
 
 const base = import.meta.env.BASE_URL ?? '/';
+const navLinks = [
+	{ label: 'Home', href: base },
+	{ label: 'About', href: `${base}#about` },
+	{ label: 'Capabilities', href: `${base}#benefits` },
+	{ label: 'Partners', href: `${base}#partners` },
+	{ label: 'Blog', href: `${base}#blog` },
+	{ label: 'Contact', href: `${base}#contact` },
+];
 ---
 
 <!doctype html>
@@ -34,6 +45,23 @@ const base = import.meta.env.BASE_URL ?? '/';
 		/>
 	</head>
 	<body class="antialiased">
+		{showGlobalNav && (
+			<header class="border-b border-black/5 bg-white/95 backdrop-blur">
+				<div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-[var(--muted)]">
+					<a href={base} class="flex items-center gap-3 text-[var(--slate)]">
+						<img src={Logo.src} width="120" height="40" alt="Galaxy logo" class="h-10 w-auto" />
+					</a>
+					<nav class="flex flex-wrap items-center gap-4">
+						{navLinks.map((link) => (
+							<a href={link.href} class="hover:text-[var(--slate)]">{link.label}</a>
+						))}
+					</nav>
+					<a href={`${base}#contact`} class="rounded-full border border-[var(--slate)] px-4 py-2 text-[var(--slate)]">
+						Work with us
+					</a>
+				</div>
+			</header>
+		)}
 		<slot />
 	</body>
 </html>

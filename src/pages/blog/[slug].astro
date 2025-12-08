@@ -15,12 +15,16 @@ const { post } = Astro.props as { post: CollectionEntry<'blog'> };
 const { Content } = await post.render();
 const withBase = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/g, '')}`;
 const blogIndexUrl = withBase('blog/');
+const homeUrl = import.meta.env.BASE_URL ?? '/';
 const heroSrc = post.data.heroImage ? withBase(post.data.heroImage.src) : undefined;
 ---
 
-<Layout title={`${post.data.title} | Galaxy Insights`} description={post.data.description}>
+<Layout title={`${post.data.title} | Galaxy Insights`} description={post.data.description} showGlobalNav>
 	<article class="mx-auto max-w-3xl px-6 py-16 text-[var(--slate)]">
-		<a href={blogIndexUrl} class="text-sm text-[var(--accent)]">← Back to blog</a>
+		<div class="flex flex-wrap gap-4 text-sm text-[var(--accent)]">
+			<a href={homeUrl}>← Back to home</a>
+			<a href={blogIndexUrl}>← Back to blog</a>
+		</div>
 		<p class="mt-6 text-xs uppercase tracking-[0.4em] text-[var(--muted)]">
 			{post.data.publishDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
 		</p>
