@@ -17,6 +17,9 @@ const brandsIndexUrl = withBase('brands/');
 const blogIndexUrl = withBase('blog/');
 const blogPageUrl = (slug: string) => withBase(`blog/${slug}/`);
 const partnerLogoUrl = (logo?: string) => (logo ? withBase(logo) : undefined);
+const partnersPageUrl = withBase('partners/');
+const historyPageUrl = withBase('history/');
+const servicesPageUrl = withBase('services/');
 ---
 
 <Layout
@@ -146,6 +149,10 @@ const partnerLogoUrl = (logo?: string) => (logo ? withBase(logo) : undefined);
               <p class="text-sm text-[var(--muted)]">Cold-chain telemetry, predictive alerts, and partner dashboards.</p>
             </div>
           </div>
+          <a href={historyPageUrl} class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">
+            Explore our full history
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
         <div class="relative">
           <div class="h-full rounded-[2rem] bg-gradient-to-br from-[#d2e7ff] via-white to-[#f5f8fb] p-10">
@@ -202,6 +209,15 @@ const partnerLogoUrl = (logo?: string) => (logo ? withBase(logo) : undefined);
             </div>
           </article>
         </div>
+        <div class="mt-10 text-center">
+          <a
+            href={servicesPageUrl}
+            class="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white"
+          >
+            View all services
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
         <div class="mt-12 rounded-[2rem] border border-white/15 bg-white/10 p-10 text-center text-2xl font-semibold tracking-tight">
           Offering you…
           <span
@@ -220,7 +236,16 @@ const partnerLogoUrl = (logo?: string) => (logo ? withBase(logo) : undefined);
             <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">Partners</p>
             <h2 class="text-2xl font-semibold text-[var(--slate)] sm:text-3xl">Trusted network delivering impact together.</h2>
           </div>
-          <a href="#contact" class="text-sm font-semibold text-[var(--accent)]">Become a partner →</a>
+          <div class="flex flex-wrap gap-4 text-sm font-semibold text-[var(--accent)]">
+            <a href={partnersPageUrl} class="inline-flex items-center gap-2">
+              View partner directory
+              <span aria-hidden="true">→</span>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2">
+              Become a partner
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
         <div class="grid gap-6 md:grid-cols-2">
           {partners.map((partner) => {

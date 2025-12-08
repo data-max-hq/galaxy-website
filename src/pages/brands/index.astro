@@ -6,10 +6,12 @@ const brands = await getCollection('brands');
 const withBase = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/g, '')}`;
 const brandLogoUrl = (logo?: string) => (logo ? withBase(`brands/${logo}`) : undefined);
 const brandPageUrl = (slug: string) => withBase(`brands/${slug}/`);
+const homeUrl = import.meta.env.BASE_URL ?? '/';
 ---
 
 <Layout title="Galaxy Brands" description="Explore Galaxy's featured therapy lines and portfolio partners.">
   <main class="mx-auto max-w-6xl px-6 py-16">
+    <a href={homeUrl} class="text-sm text-[var(--accent)]">← Back to home</a>
     <section class="space-y-4" data-animate>
       <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">Brands</p>
       <h1 class="text-4xl font-semibold text-[var(--slate)]">Portfolio lines curated for Albanian patients.</h1>

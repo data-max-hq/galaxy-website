@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    id: 'gmp-2',
+    title: 'Good Distribution Practices',
+    excerpt:
+      'Galaxy applies Good Distribution Practices and Good Manufacturing Practices to guarantee quality and safety. Every storage, handling, and transport step stays under documented control so product integrity meets Albanian and international expectations.',
+  },
+  {
+    id: 'wms',
+    title: 'Warehouse Management System',
+    excerpt:
+      'A dedicated WMS orchestrates goods receiving, inventory tracking, order picking, packing, and shipping. The system delivers real-time stock visibility, fewer errors, faster turnarounds, and reliable deliveries for pharmacies and hospitals.',
+  },
+  {
+    id: 'erp',
+    title: 'Enterprise Resource Planning',
+    excerpt:
+      'Our ERP platform unifies finance, sales, procurement, production, inventory, HR, and customer relationships into one data model. Integrated workflows reduce manual effort, lower operational costs, and speed up decision-making.',
+  },
+  {
+    id: 'regulatory',
+    title: 'Regulatory Affairs',
+    excerpt:
+      'A specialized department tracks dossiers and vigilance activities so medicines, medical devices, and other products meet safety, quality, and efficacy standards. Purpose-built warehouses guarantee traceability for every Profarma Group launch.',
+  },
+  {
+    id: 'logistics',
+    title: 'Distribution & Logistics',
+    excerpt:
+      'Database-backed traceability, WMS-enabled warehouses, ERP integrations, FEFO execution, cold rooms, blackout management (24/7 generators and backup systems), and national training plans ensure compliant deliveries every day.',
+  },
+  {
+    id: 'marketing',
+    title: 'Marketing Activities',
+    excerpt:
+      'Medical representatives covering around 96% of Albania present innovative, safe, and qualitative medications. We prepare medical information across therapeutic areas for public hospitals, private clinics, polyclinics, and the broader healthcare system.',
+  },
+];
+
+const homeUrl = import.meta.env.BASE_URL ?? '/';
+---
+
+<Layout
+  title="Galaxy | Services"
+  description="Explore Galaxy’s integrated services spanning regulatory affairs, logistics, marketing, and digital systems for the Albanian healthcare market."
+>
+  <main class="mx-auto max-w-6xl px-6 py-16">
+    <a href={homeUrl} class="text-sm text-[var(--accent)]">← Back to home</a>
+    <section class="space-y-4" data-animate>
+      <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">Services</p>
+      <h1 class="text-4xl font-semibold text-[var(--slate)] sm:text-5xl">
+        Innovative solutions for doctors, pharmacists, and patients.
+      </h1>
+      <p class="text-lg text-[var(--muted)]">
+        Since 1992, Galaxy has been a leading partner in Albania with comprehensive, integrated solutions for healthcare stakeholders. Our promise is a seamless One-Stop Solution across regulatory, marketing, logistics, and commercialization tasks so partners navigate the market efficiently.
+      </p>
+      <p class="text-lg text-[var(--muted)]">
+        Whether you need dossier support, promotional strategy, or distribution muscle, our network shares the expertise and resources required to keep therapies moving.
+      </p>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2" data-animate>
+      {services.map((service) => (
+        <article class="rounded-3xl border border-black/5 bg-white/90 p-6 shadow-sm backdrop-blur-sm">
+          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">{service.id}</p>
+          <h2 class="mt-3 text-2xl font-semibold text-[var(--slate)]">{service.title}</h2>
+          <p class="mt-3 text-[var(--muted)]">{service.excerpt}</p>
+          <button class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">
+            Read more
+            <span aria-hidden="true">→</span>
+          </button>
+        </article>
+      ))}
+    </section>
+  </main>
+</Layout>

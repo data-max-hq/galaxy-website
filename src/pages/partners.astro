@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface PartnerEntry {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  ctaLabel: string;
+}
+
+const partners: PartnerEntry[] = [
+  {
+    id: 'profarma',
+    name: 'Profarma',
+    category: 'Health / Medical / Pharmaceuticals',
+    description:
+      'Profarma is the only Albanian-speaking pharmaceutical manufacturing company, carrying a 70-year legacy of caring for patients and healthcare professionals.',
+    ctaLabel: 'Visit Profarma',
+  },
+  {
+    id: 'dermaviduals',
+    name: 'Dermaviduals',
+    category: 'Skin Care · Skin Protection · Dermatics',
+    description:
+      'Dermaviduals® delivers preventive care that keeps problem skin at bay while supplying dermaceutical solutions able to significantly improve complexions that need extra support.',
+    ctaLabel: 'View products',
+  },
+  {
+    id: '3chenes',
+    name: '3 Chênes',
+    category: 'Food supplements & natural cosmetics',
+    description:
+      '3 Chênes® is dedicated to fitness, beauty, and health for the whole family, blending food supplements and natural cosmetic innovations.',
+    ctaLabel: 'View products',
+  },
+  {
+    id: 'neo-kids',
+    name: 'Neo Kids',
+    category: 'Natural supplements for the whole family',
+    description:
+      'Nature-inspired supplements for children and adults made with medicinal herbs, mushrooms, trace elements, vitamins, and minerals.',
+    ctaLabel: 'View products',
+  },
+  {
+    id: 'rokivit',
+    name: 'Rokivit',
+    category: 'Pharmaceutical products from Rokitan',
+    description:
+      'Rokivit develops healthcare products in defined therapeutic areas, pursuing new formulations and market reach to meet evolving patient needs.',
+    ctaLabel: 'View products',
+  },
+  {
+    id: 'multi-gyn',
+    name: 'Multi-Gyn',
+    category: 'Get back to brilliant with Multi-Gyn',
+    description:
+      'From odor to itch, dryness to discharge, Multi-Gyn’s natural-based range eases vaginal discomfort from common infections like BV and thrush—fast.',
+    ctaLabel: 'View products',
+  },
+  {
+    id: '7days',
+    name: '7 Days',
+    category: 'Cosmetics brand',
+    description:
+      '7DAYS is a playful cosmetics trendsetter beloved for its bold concepts, eye-catching design, product quality, and transparent mindset.',
+    ctaLabel: 'View products',
+  },
+  {
+    id: 'mentholatum',
+    name: 'Mentholatum',
+    category: 'Healthcare products',
+    description:
+      'Mentholatum is a specialized global company delivering effective, innovative, and accessible products that improve health and wellness worldwide.',
+    ctaLabel: 'View products',
+  },
+  {
+    id: 'officina',
+    name: 'Officina Naturae',
+    category: 'Cosmetics and detergents',
+    description:
+      'Officina naturae designs excellent, truly effective cosmetics and detergents that are safe for people and nature alike.',
+    ctaLabel: 'View products',
+  },
+  {
+    id: 'balene',
+    name: 'Balene',
+    category: 'Advanced cleaning technology',
+    description:
+      'Balene improves dental hygiene outcomes with a more effective brush design that reduces user error and elevates daily care routines.',
+    ctaLabel: 'View products',
+  },
+  {
+    id: 'vitamunda',
+    name: 'Vitamunda',
+    category: 'High quality nutritional supplements',
+    description:
+      'Vitamunda formulates supplements that help the body function optimally while supporting its natural recovery processes.',
+    ctaLabel: 'View products',
+  },
+];
+
+const initialsFor = (name: string) =>
+  name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join('');
+
+const homeUrl = import.meta.env.BASE_URL ?? '/';
+---
+
+<Layout
+  title="Galaxy | Partners"
+  description="Meet the partner brands powering Galaxy’s Albanian healthcare distribution network."
+>
+  <main class="mx-auto max-w-6xl px-6 py-16">
+    <a href={homeUrl} class="text-sm text-[var(--accent)]">← Back to home</a>
+    <section class="space-y-4" data-animate>
+      <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">Partners</p>
+      <h1 class="text-4xl font-semibold text-[var(--slate)] sm:text-5xl">Trusted brands we represent in Albania.</h1>
+      <p class="text-lg text-[var(--muted)]">
+        Galaxy offers innovative solutions for doctors, pharmacists, and patients through a portfolio that blends effective, safe, and high-quality medications, supplements, and medical devices.
+      </p>
+      <p class="text-lg text-[var(--muted)]">
+        Our partners benefit from a one-stop solution that manages regulatory activities, marketing, logistics, and commercialization so their products reach pharmacies and hospitals confidently.
+      </p>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2" data-animate>
+      {partners.map((partner) => (
+        <article class="rounded-3xl border border-black/5 bg-white/90 p-6 shadow-sm backdrop-blur-sm">
+          <div class="flex items-start gap-4">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--page)] text-base font-semibold text-[var(--accent)]">
+              {initialsFor(partner.name)}
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">{partner.category}</p>
+              <h2 class="mt-2 text-2xl font-semibold text-[var(--slate)]">{partner.name}</h2>
+            </div>
+          </div>
+          <p class="mt-4 text-[var(--muted)]">{partner.description}</p>
+          <button class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">
+            {partner.ctaLabel}
+            <span aria-hidden="true">→</span>
+          </button>
+        </article>
+      ))}
+    </section>
+  </main>
+</Layout>

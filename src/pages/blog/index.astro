@@ -7,10 +7,12 @@ const posts = (await getCollection('blog')).sort(
 );
 const withBase = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/g, '')}`;
 const blogPageUrl = (slug: string) => withBase(`blog/${slug}/`);
+const homeUrl = import.meta.env.BASE_URL ?? '/';
 ---
 
 <Layout title="Galaxy Insights" description="Regulatory, logistics, and quality insights from Galaxy and Profarma Group.">
 	<main class="mx-auto max-w-5xl px-6 py-16 text-[var(--slate)]">
+		<a href={homeUrl} class="text-sm text-[var(--accent)]">← Back to home</a>
 		<section class="mb-12 text-center">
 			<p class="text-sm uppercase tracking-[0.4em] text-[var(--muted)]">Galaxy Blog</p>
 			<h1 class="mt-4 text-4xl font-semibold text-[var(--slate)]">Regulatory clarity. Operational precision.</h1>
