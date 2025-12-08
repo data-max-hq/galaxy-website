@@ -3,7 +3,7 @@
   "tagline": "Corneotherapy skincare customization",
   "description": "Dermaviduals offers modular dermatological care tailored to barrier repair and sensitive skin protocols.",
   "website": "https://example.com/dermaviduals",
-  "logo": "/brands/dermaviduals.png",
+  "logo": "dermaviduals.png",
   "featuredColor": "#0c4c7a",
   "products": [
     { "name": "Barrier Repair Cream", "category": "Moisturizer", "description": "Lamellar lipids to restore skin matrix." },

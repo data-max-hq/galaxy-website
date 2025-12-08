@@ -3,7 +3,7 @@
   "tagline": "Daily wellness support trusted by clinicians",
   "description": "The 7Days line focuses on immune, digestive, and metabolic supplements designed for Albanian families seeking dependable formulations.",
   "website": "https://example.com/7days",
-  "logo": "/brands/7days.png",
+  "logo": "7days.png",
   "featuredColor": "#0b3cde",
   "products": [
     { "name": "Immune Guard Gummies", "category": "Immune", "description": "Vitamin C, zinc, and elderberry chewables." },

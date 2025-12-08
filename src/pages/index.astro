@@ -9,6 +9,14 @@ const posts = blogEntries
   .slice(0, 3);
 const partners = await getCollection('partners');
 const brands = await getCollection('brands');
+
+const withBase = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/g, '')}`;
+const brandLogoUrl = (logo?: string) => (logo ? withBase(`brands/${logo}`) : undefined);
+const brandPageUrl = (slug: string) => withBase(`brands/${slug}/`);
+const brandsIndexUrl = withBase('brands/');
+const blogIndexUrl = withBase('blog/');
+const blogPageUrl = (slug: string) => withBase(`blog/${slug}/`);
+const partnerLogoUrl = (logo?: string) => (logo ? withBase(logo) : undefined);
 ---
 
 <Layout
@@ -34,7 +42,7 @@ const brands = await getCollection('brands');
     </header>
 
     <main class="mx-auto flex max-w-6xl flex-col gap-24 px-6 pb-24 pt-16" id="home">
-      <section class="relative overflow-hidden rounded-[2.75rem] bg-[#0f1933] px-8 py-12 text-white" data-animate>
+      <section class="hero-radiance relative overflow-hidden rounded-[2.75rem] bg-[#0f1933] px-8 py-12 text-white" data-animate>
         <div class="motion-glow absolute inset-0 -z-10 opacity-50" style="background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,.25), transparent 45%), radial-gradient(circle at 80% 10%, rgba(12,100,255,.4), transparent 35%), linear-gradient(120deg, rgba(15,25,51,0.8), rgba(7,15,30,0.8)); background-size: cover;" />
         <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
           <div class="space-y-6">
@@ -47,16 +55,16 @@ const brands = await getCollection('brands');
             </p>
             <div class="grid gap-6 text-sm sm:grid-cols-3">
               <div>
-                <p class="text-3xl font-semibold">1,400+</p>
-                <p class="uppercase tracking-[0.2em] text-white/70">Products distributed</p>
+                <p class="text-3xl font-semibold">Precision</p>
+                <p class="uppercase tracking-[0.2em] text-white/70">Telemetry-controlled routes</p>
               </div>
               <div>
-                <p class="text-3xl font-semibold">1,000+</p>
-                <p class="uppercase tracking-[0.2em] text-white/70">Pharmacies served</p>
+                <p class="text-3xl font-semibold">Coverage</p>
+                <p class="uppercase tracking-[0.2em] text-white/70">Community to tertiary care</p>
               </div>
               <div>
-                <p class="text-3xl font-semibold">24h</p>
-                <p class="uppercase tracking-[0.2em] text-white/70">National reach</p>
+                <p class="text-3xl font-semibold">Velocity</p>
+                <p class="uppercase tracking-[0.2em] text-white/70">Regulatory + supply in sync</p>
               </div>
             </div>
             <div class="flex flex-wrap gap-4">
@@ -84,6 +92,37 @@ const brands = await getCollection('brands');
                 <p class="uppercase tracking-[0.2em] text-[var(--muted)]">Refresh rate</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-ribbon -mt-6 grid gap-4 rounded-[2rem] px-8 py-6 text-[var(--slate)] shadow-[0_25px_50px_rgba(3,15,35,0.08)] sm:grid-cols-2 lg:grid-cols-4" data-animate>
+        <div class="stats-item flex items-center gap-4">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-lg font-semibold text-[var(--accent)]">1</span>
+          <div>
+            <p class="text-xs uppercase tracking-[0.35em] text-[var(--muted)]">Therapies</p>
+            <p class="text-xl font-semibold">1,400+ products guided</p>
+          </div>
+        </div>
+        <div class="stats-item flex items-center gap-4">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-lg font-semibold text-[var(--accent)]">∞</span>
+          <div>
+            <p class="text-xs uppercase tracking-[0.35em] text-[var(--muted)]">Pharmacies</p>
+            <p class="text-xl font-semibold">1,000+ network partners</p>
+          </div>
+        </div>
+        <div class="stats-item flex items-center gap-4">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-lg font-semibold text-[var(--accent)]">24</span>
+          <div>
+            <p class="text-xs uppercase tracking-[0.35em] text-[var(--muted)]">Hours</p>
+            <p class="text-xl font-semibold">Nationwide delivery loop</p>
+          </div>
+        </div>
+        <div class="stats-item flex items-center gap-4">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-lg font-semibold text-[var(--accent)]">QC</span>
+          <div>
+            <p class="text-xs uppercase tracking-[0.35em] text-[var(--muted)]">Quality</p>
+            <p class="text-xl font-semibold">GDP-certified operations</p>
           </div>
         </div>
       </section>
@@ -127,26 +166,43 @@ const brands = await getCollection('brands');
         <div class="space-y-2 text-center">
           <p class="text-xs uppercase tracking-[0.4em] text-white/70">Capabilities</p>
           <h2 class="text-3xl font-semibold">Benefits that save you time and safeguard therapies.</h2>
+          <p class="text-white/70">A four-step operating rhythm that keeps dossiers, inventory, and pharmacies aligned.</p>
         </div>
-        <div class="mt-10 grid gap-6 md:grid-cols-4">
-          <article class="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm">
-            <p class="text-lg font-semibold">Effortless onboarding</p>
-            <p class="mt-2 text-white/80">Easily onboard via our regulatory playbook and shared data rooms.</p>
+        <div class="timeline-grid mt-12 grid gap-8 md:grid-cols-4">
+          <article class="timeline-step" data-step="01">
+            <div class="timeline-step-content text-sm">
+              <p class="text-xs uppercase tracking-[0.35em] text-white/70">Onboard</p>
+              <h3 class="mt-2 text-2xl font-semibold">Regulatory playbooks</h3>
+              <p class="mt-3 text-white/80">Dossier translation, MoH submissions, and vigilance set-up handled with mirrored data rooms.</p>
+              <span class="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">Shared QA desk</span>
+            </div>
           </article>
-          <article class="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm">
-            <p class="text-lg font-semibold">Flexible shipping</p>
-            <p class="mt-2 text-white/80">Same-day releases, validated cold-chain, and 24h national coverage.</p>
+          <article class="timeline-step" data-step="02">
+            <div class="timeline-step-content text-sm">
+              <p class="text-xs uppercase tracking-[0.35em] text-white/70">Launch</p>
+              <h3 class="mt-2 text-2xl font-semibold">Therapy choreography</h3>
+              <p class="mt-3 text-white/80">Cold rooms, pick accuracy, and labeling synced with your global release calendar for zero-lag handoffs.</p>
+              <span class="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">Validated lanes</span>
+            </div>
           </article>
-          <article class="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm">
-            <p class="text-lg font-semibold">Returns made easy</p>
-            <p class="mt-2 text-white/80">GDP-compliant recalls and traceability with a single contact.</p>
+          <article class="timeline-step" data-step="03">
+            <div class="timeline-step-content text-sm">
+              <p class="text-xs uppercase tracking-[0.35em] text-white/70">Monitor</p>
+              <h3 class="mt-2 text-2xl font-semibold">Live telemetry</h3>
+              <p class="mt-3 text-white/80">Dashboards blend IoT sensors, recall readiness, and pharmacy feedback loops for proactive interventions.</p>
+              <span class="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">Signal alerts</span>
+            </div>
           </article>
-          <article class="rounded-2xl border border-white/10 bg-white/5 p-6 text-sm">
-            <p class="text-lg font-semibold">Extensive selection</p>
-            <p class="mt-2 text-white/80">OTC to specialty—our network spans community pharmacies to acute care.</p>
+          <article class="timeline-step" data-step="04">
+            <div class="timeline-step-content text-sm">
+              <p class="text-xs uppercase tracking-[0.35em] text-white/70">Grow</p>
+              <h3 class="mt-2 text-2xl font-semibold">Network expansion</h3>
+              <p class="mt-3 text-white/80">Retail activations and hospital contracts scaled through 1,000 pharmacy relationships and Profarma co-marketing.</p>
+              <span class="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">Portal insights</span>
+            </div>
           </article>
         </div>
-        <div class="mt-10 rounded-[2rem] border border-white/15 bg-white/10 p-10 text-center text-2xl font-semibold tracking-tight">
+        <div class="mt-12 rounded-[2rem] border border-white/15 bg-white/10 p-10 text-center text-2xl font-semibold tracking-tight">
           Offering you…
           <span
             class="ml-3 font-semibold text-white typewriter"
@@ -167,10 +223,14 @@ const brands = await getCollection('brands');
           <a href="#contact" class="text-sm font-semibold text-[var(--accent)]">Become a partner →</a>
         </div>
         <div class="grid gap-6 md:grid-cols-2">
-          {partners.map((partner) => (
+          {partners.map((partner) => {
+            const logoSrc = partnerLogoUrl(partner.data.logo);
+            return (
             <article class="glow-card flex flex-col gap-4 rounded-3xl p-6" key={partner.id}>
               <div class="flex items-center gap-4">
-                <img src={partner.data.logo} alt={`${partner.data.name} logo`} class="h-16 w-16 rounded-2xl bg-[var(--page)] p-3" />
+                <div class="partner-logo flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--page)] p-3">
+                  {logoSrc && <img src={logoSrc} alt={`${partner.data.name} logo`} class="h-full w-full object-contain" />}
+                </div>
                 <div>
                   <h3 class="text-lg font-semibold text-[var(--slate)]">{partner.data.name}</h3>
                   <p class="text-sm text-[var(--muted)]">{partner.data.focus}</p>
@@ -181,7 +241,20 @@ const brands = await getCollection('brands');
                 Visit website →
               </a>
             </article>
-          ))}
+            );
+          })}
+        </div>
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+          <blockquote class="glow-card rounded-3xl p-6 text-sm text-[var(--muted)]">
+            <p class="text-xs uppercase tracking-[0.35em] text-[var(--slate)]">Partner voice</p>
+            <p class="mt-3 text-lg font-semibold text-[var(--slate)]">“Galaxy gives us day-zero visibility on launches—regulatory, market access, and inventory share a single tracker.”</p>
+            <p class="mt-4 font-semibold text-[var(--slate)]">Profarma Group Leadership</p>
+          </blockquote>
+          <blockquote class="glow-card rounded-3xl p-6 text-sm text-[var(--muted)]">
+            <p class="text-xs uppercase tracking-[0.35em] text-[var(--slate)]">Pharmacy network</p>
+            <p class="mt-3 text-lg font-semibold text-[var(--slate)]">“Temperature telemetry and 24h restocks keep our pediatric lines confident even during peak demand.”</p>
+            <p class="mt-4 font-semibold text-[var(--slate)]">NeoKids Retail Lead</p>
+          </blockquote>
         </div>
       </section>
 
@@ -191,12 +264,12 @@ const brands = await getCollection('brands');
             <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">Blog</p>
             <h2 class="text-3xl font-semibold text-[var(--slate)]">Signals from our distribution floor.</h2>
           </div>
-          <a href="/blog" class="text-sm font-semibold text-[var(--accent)]">View all posts →</a>
+          <a href={blogIndexUrl} class="text-sm font-semibold text-[var(--accent)]">View all posts →</a>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           {posts.map((post) => (
             <a
-              href={`/blog/${post.slug}/`}
+              href={blogPageUrl(post.slug)}
               class="glow-card flex flex-col overflow-hidden rounded-3xl"
               key={post.id}
             >
@@ -222,34 +295,45 @@ const brands = await getCollection('brands');
             <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">Brands</p>
             <h2 class="text-3xl font-semibold text-[var(--slate)]">Featured portfolio lines.</h2>
           </div>
-          <div class="flex gap-3">
-            <button type="button" class="rounded-full border border-black/10 px-4 py-2 text-sm" data-carousel-prev>Prev</button>
-            <button type="button" class="rounded-full border border-black/10 px-4 py-2 text-sm" data-carousel-next>Next</button>
+          <div class="flex flex-wrap items-center gap-3">
+            <a href={brandsIndexUrl} class="text-sm font-semibold text-[var(--accent)]">View all brands →</a>
+            <div class="hidden gap-3 md:flex">
+              <button type="button" class="rounded-full border border-black/10 px-4 py-2 text-sm" data-carousel-prev>Prev</button>
+              <button type="button" class="rounded-full border border-black/10 px-4 py-2 text-sm" data-carousel-next>Next</button>
+            </div>
           </div>
         </div>
         <div class="relative">
-          <div class="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar" data-brand-carousel>
-            {brands.map((brand) => (
-              <a
-                href={`/brands/${brand.id}/`}
-                class="glow-card min-w-[260px] flex-1 rounded-3xl p-6 transition hover:-translate-y-1"
-                style={`border-top: 4px solid ${brand.data.featuredColor};`}
-              >
-                <div class="flex items-center gap-3">
-                  {brand.data.logo && (
-                    <div class="flex h-16 w-16 items-center justify-center rounded-2xl border border-black/5 bg-white shadow-sm">
-                      <img src={brand.data.logo} alt={`${brand.data.name} logo`} class="max-h-12 max-w-12 object-contain" />
+          <div class="brand-carousel flex overflow-x-auto scroll-smooth no-scrollbar" data-brand-carousel>
+            {brands.map((brand) => {
+              const logoSrc = brandLogoUrl(brand.data.logo);
+              return (
+                <a
+                  href={brandPageUrl(brand.id)}
+                  class="brand-card min-w-[260px] flex-1 rounded-3xl p-6 transition"
+                  style={`border-top: 4px solid ${brand.data.featuredColor};`}
+                >
+                  <div class="flex items-center gap-4">
+                    {logoSrc && (
+                      <div class="brand-logo-tile flex items-center justify-center">
+                        <img src={logoSrc} alt={`${brand.data.name} logo`} class="max-h-12 max-w-12 object-contain" />
+                      </div>
+                    )}
+                    <div>
+                      <p class="text-xs uppercase tracking-[0.35em] text-[var(--muted)]">Therapies</p>
+                      <h3 class="text-xl font-semibold text-[var(--slate)]">{brand.data.name}</h3>
                     </div>
-                  )}
-                  <div>
-                    <p class="text-xs uppercase tracking-[0.35em] text-[var(--muted)]">Therapies</p>
-                    <h3 class="text-xl font-semibold text-[var(--slate)]">{brand.data.name}</h3>
                   </div>
-                </div>
-                <p class="mt-2 text-sm text-[var(--muted)]">{brand.data.tagline}</p>
-                <span class="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">View products →</span>
-              </a>
-            ))}
+                  <p class="mt-2 text-sm text-[var(--muted)]">{brand.data.tagline}</p>
+                  <div class="mt-4 flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">
+                    <span>View products</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12h14m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -266,19 +350,34 @@ const brands = await getCollection('brands');
             Share dossier milestones, inventory targets, or partner needs. A Galaxy specialist replies within 24 hours with a clear plan coordinated across regulatory and distribution.
           </p>
           <form class="grid gap-4 text-[var(--slate)]">
-            <div>
-              <label class="text-sm font-semibold">Full name</label>
-              <input type="text" placeholder="Arta Dervishi" class="mt-1 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm" />
+            <div class="grid gap-4 md:grid-cols-2">
+              <div>
+                <label class="text-sm font-semibold">Full name</label>
+                <input type="text" placeholder="Arta Dervishi" class="mt-1 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm" />
+              </div>
+              <div>
+                <label class="text-sm font-semibold">Company</label>
+                <input type="text" placeholder="Your organization" class="mt-1 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm" />
+              </div>
             </div>
-            <div>
-              <label class="text-sm font-semibold">Company</label>
-              <input type="text" placeholder="Your organization" class="mt-1 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm" />
+            <div class="grid gap-4 md:grid-cols-2">
+              <div>
+                <label class="text-sm font-semibold">Work email</label>
+                <input type="email" placeholder="you@company.com" class="mt-1 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm" />
+              </div>
+              <div>
+                <label class="text-sm font-semibold">Phone</label>
+                <input type="tel" placeholder="+355 68 000 000" class="mt-1 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm" />
+              </div>
             </div>
             <div>
               <label class="text-sm font-semibold">Message</label>
               <textarea rows="4" placeholder="Tell us about your portfolio or submission timeline." class="mt-1 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm"></textarea>
             </div>
-            <button type="button" class="rounded-full bg-[var(--accent)] px-8 py-3 text-sm font-semibold text-white">Send request</button>
+            <div class="flex flex-wrap items-center gap-3">
+              <button type="button" class="rounded-full bg-[var(--accent)] px-8 py-3 text-sm font-semibold text-white">Send request</button>
+              <p class="text-sm text-[var(--muted)]">Average reply time: <span class="font-semibold text-[var(--slate)]">&lt; 24h</span></p>
+            </div>
           </form>
         </div>
         <div class="glow-card rounded-3xl p-6 text-sm text-[var(--muted)]">
@@ -297,6 +396,18 @@ const brands = await getCollection('brands');
             <p>Response time</p>
             <p class="text-2xl font-semibold text-[var(--slate)]">&lt; 24 hours</p>
             <p>for licensing & launch requests</p>
+          </div>
+          <div class="contact-map mt-6">
+            <p class="text-xs uppercase tracking-[0.4em] text-white/70">Live coverage</p>
+            <p class="mt-2 text-2xl font-semibold">Tirana command hub</p>
+            <p class="mt-2 text-sm text-white/80">Korçë · Durrës · Shkodër spokes monitored with telematics and on-call QA.</p>
+            <div class="mt-6 flex items-center gap-3">
+              <div class="contact-map__pulse"></div>
+              <div>
+                <p class="text-sm font-semibold">41.3275° N · 19.8187° E</p>
+                <p class="text-xs uppercase tracking-[0.3em] text-white/70">HQ coordinates</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

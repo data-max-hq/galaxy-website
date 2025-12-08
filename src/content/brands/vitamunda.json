@@ -3,7 +3,7 @@
   "tagline": "Clinical-grade nutraceutical protocols",
   "description": "Vitamunda specializes in gut, detox, and metabolic formulas used by integrative physicians across Europe.",
   "website": "https://example.com/vitamunda",
-  "logo": "/brands/vitamunda.png",
+  "logo": "vitamunda.png",
   "featuredColor": "#7423c9",
   "products": [
     { "name": "Advanced Liver Reset", "category": "Detox", "description": "Milk thistle, NAC, and artichoke blend." },

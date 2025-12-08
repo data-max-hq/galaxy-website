@@ -3,7 +3,7 @@
   "tagline": "Eco-friendly personal care crafted in Italy",
   "description": "Officina Naturae delivers sustainable dermo-cosmetics and hygiene solutions that combine botanical science with circular packaging.",
   "website": "https://example.com/officina-naturae",
-  "logo": "/brands/officina_naturae.png",
+  "logo": "officina_naturae.png",
   "featuredColor": "#0d6b4b",
   "products": [
     { "name": "Eco Defense Toothpaste", "category": "Oral Care", "description": "Mint and sage formula in recyclable tube." },

@@ -3,7 +3,7 @@
   "tagline": "Therapies crafted for young patients",
   "description": "NeoKids focuses on pediatric nutritionals, dermo-cosmetics, and gentle OTC solutions trusted by Albanian parents.",
   "website": "https://example.com/neokids",
-  "logo": "/brands/neokids.png",
+  "logo": "neokids.png",
   "featuredColor": "#f06c3b",
   "products": [
     { "name": "NeoKids Fever Relief", "category": "OTC", "description": "Paracetamol suspension with dosing syringe." },
