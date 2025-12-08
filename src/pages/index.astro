@@ -145,6 +145,16 @@ const partners = await getCollection('partners');
             <p class="mt-2 text-white/80">OTC to specialty—our network spans community pharmacies to acute care.</p>
           </article>
         </div>
+        <div class="mt-10 rounded-[2rem] border border-white/15 bg-white/10 p-10 text-center text-2xl font-semibold tracking-tight">
+          Offering you…
+          <span
+            class="ml-3 font-semibold text-white typewriter"
+            data-typewriter
+            data-words='["Free Shipping","Customer Service","Regulatory Guidance"]'
+          >
+            Free Shipping
+          </span>
+        </div>
       </section>
 
       <section id="partners" class="space-y-8" data-animate>
@@ -280,6 +290,36 @@ const partners = await getCollection('partners');
         section.classList.add('reveal-up');
         observer.observe(section);
       });
+    }
+
+    const typeTarget = document.querySelector('[data-typewriter]');
+    const wordsAttr = typeTarget?.getAttribute('data-words');
+    if (typeTarget && wordsAttr) {
+      const words = JSON.parse(wordsAttr);
+      let wordIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      const type = () => {
+        const current = words[wordIndex] ?? '';
+        charIndex += deleting ? -1 : 1;
+        typeTarget.textContent = current.slice(0, charIndex);
+
+        let delay = deleting ? 45 : 90;
+
+        if (!deleting && charIndex === current.length) {
+          delay = 2000;
+          deleting = true;
+        } else if (deleting && charIndex === 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          delay = 500;
+        }
+
+        setTimeout(type, delay);
+      };
+
+      type();
     }
   </script>
 </Layout>
