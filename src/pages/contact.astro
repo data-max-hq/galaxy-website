@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL ?? '/';
+const socials = [
+  { label: 'Facebook', href: 'https://www.facebook.com/', isExternal: true },
+  { label: 'X', href: 'https://twitter.com/', isExternal: true },
+  { label: 'Instagram', href: 'https://www.instagram.com/galaxyalbania/' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/galaxy-sh-p-k/' },
+];
+---
+
+<Layout
+  title="Contact Galaxy Pharmaceuticals"
+  description="Reach Galaxy’s media, partnership, and clinical support teams."
+  showGlobalNav
+>
+  <main class="mx-auto max-w-5xl space-y-12 px-6 py-16">
+    <section class="grid gap-6 rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm backdrop-blur md:grid-cols-2" data-animate>
+      <div class="space-y-4">
+        <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--muted)]">Contact us</p>
+        <h1 class="text-4xl font-semibold text-[var(--slate)] sm:text-5xl">Let’s plan your next launch.</h1>
+        <p class="text-lg text-[var(--muted)]">
+          Share your dossier timeline, portfolio goals, or press inquiries and we’ll align the right regulatory, commercial,
+          and logistics leaders for a fast response.
+        </p>
+        <div class="grid gap-4 text-sm md:grid-cols-2">
+          <div class="rounded-2xl border border-black/5 bg-[var(--page)]/70 p-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Phone</p>
+            <p class="mt-2 text-lg font-semibold text-[var(--slate)]">+355 68 402 2022</p>
+          </div>
+          <div class="rounded-2xl border border-black/5 bg-[var(--page)]/70 p-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Email</p>
+            <p class="mt-2 text-lg font-semibold text-[var(--slate)]">info@galaxy.al</p>
+          </div>
+          <div class="rounded-2xl border border-black/5 bg-[var(--page)]/70 p-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Location</p>
+            <p class="mt-2 text-lg font-semibold text-[var(--slate)]">Skënder Vila, Tirana</p>
+          </div>
+          <div class="rounded-2xl border border-black/5 bg-[var(--page)]/70 p-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Office time</p>
+            <p class="mt-2 text-lg font-semibold text-[var(--slate)]">08:00 – 16:30</p>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-6 rounded-3xl border border-black/5 bg-[var(--page)]/80 p-6">
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Visit</p>
+          <p class="mt-2 text-lg font-semibold text-[var(--slate)]">Street: Skënder Vila, Tirana</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-[var(--muted)]">Follow</p>
+          <ul class="mt-3 space-y-2 text-sm font-semibold text-[var(--accent)]">
+            {socials.map((item) => (
+              <li>
+                <a href={item.href} target="_blank" rel="noopener">
+                  {item.label}
+                  <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-black/5 bg-white p-5 text-sm text-[var(--muted)]">
+          <p>Need immediate support?</p>
+          <p class="font-semibold text-[var(--slate)]">Call +355 68 402 2022 for urgent cold-chain questions.</p>
+        </div>
+        <a
+          href={`${base}`}
+          class="inline-flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm font-semibold text-[var(--slate)]"
+        >
+          ← Back to home
+        </a>
+      </div>
+    </section>
+
+    <section class="rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm" data-animate>
+      <h2 class="text-3xl font-semibold text-[var(--slate)]">Send us a note</h2>
+      <p class="mt-2 text-[var(--muted)]">
+        We reply within one business day. If you require a CDA, include it below and our legal team will coordinate the signature flow.
+      </p>
+      <form class="mt-8 space-y-6" netlify>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div>
+            <label class="text-sm font-semibold text-[var(--slate)]">Full name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Elira Marku"
+              class="mt-2 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm"
+              required
+            />
+          </div>
+          <div>
+            <label class="text-sm font-semibold text-[var(--slate)]">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="you@company.com"
+              class="mt-2 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm"
+              required
+            />
+          </div>
+          <div>
+            <label class="text-sm font-semibold text-[var(--slate)]">Phone</label>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="+355 68 000 000"
+              class="mt-2 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm"
+            />
+          </div>
+          <div>
+            <label class="text-sm font-semibold text-[var(--slate)]">Company</label>
+            <input
+              type="text"
+              name="company"
+              placeholder="Your organization"
+              class="mt-2 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm"
+            />
+          </div>
+        </div>
+        <div>
+          <label class="text-sm font-semibold text-[var(--slate)]">Message</label>
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Tell us about your therapy portfolio, timeline, or press request."
+            class="mt-2 w-full rounded-2xl border border-black/10 bg-[var(--page)] px-4 py-3 text-sm"
+            required
+          ></textarea>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <button type="submit" class="rounded-full bg-[var(--accent)] px-8 py-3 text-sm font-semibold text-white">
+            Submit request
+          </button>
+          <p class="text-sm text-[var(--muted)]">Normal reply time: <span class="font-semibold text-[var(--slate)]">&lt; 24h</span></p>
+        </div>
+      </form>
+    </section>
+  </main>
+</Layout>

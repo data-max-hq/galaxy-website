@@ -16,53 +16,56 @@ const partners: PartnerEntry[] = [
   {
     id: 'profarma',
     name: 'Profarma',
-    category: 'Health / Medical / Pharmaceuticals',
+    category: 'Health/Medical/Pharmaceuticals',
     description:
-      'Profarma is the only Albanian-speaking pharmaceutical manufacturing company, carrying a 70-year legacy of caring for patients and healthcare professionals.',
+      'Profarma is the only Albanian-speaking pharmaceutical company and carries more than 70 years of uninterrupted healthcare history.',
     ctaLabel: 'Visit Profarma',
-    logo: withBase('logos/profarma.svg'),
+    logo: withBase('logos/profarma.png'),
   },
   {
     id: 'dermaviduals',
     name: 'Dermaviduals',
     category: 'Skin Care · Skin Protection · Dermatics',
     description:
-      'Dermaviduals® delivers preventive care that keeps problem skin at bay while supplying dermaceutical solutions able to significantly improve complexions that need extra support.',
-    ctaLabel: 'View products',
-    logo: withBase('brands/dermaviduals.png'),
+      'Dermaviduals® supports preventive routines that help avoid problem skin and provides dermaceutical care that improves already stressed complexions.',
+    ctaLabel: 'Explore brand',
+    logo: withBase('logos/dermaviduals.png'),
   },
   {
     id: '3chenes',
     name: '3 Chênes',
     category: 'Food supplements & natural cosmetics',
     description:
-      '3 Chênes® is dedicated to fitness, beauty, and health for the whole family, blending food supplements and natural cosmetic innovations.',
-    ctaLabel: 'View products',
+      '3 Chênes® creates food supplements and natural cosmetics designed for the fitness, beauty, and health of the entire family.',
+    ctaLabel: 'Explore brand',
+    logo: withBase('logos/3chenes.png'),
   },
   {
     id: 'neo-kids',
     name: 'Neo Kids',
     category: 'Natural supplements for the whole family',
     description:
-      'Nature-inspired supplements for children and adults made with medicinal herbs, mushrooms, trace elements, vitamins, and minerals.',
-    ctaLabel: 'View products',
-    logo: withBase('brands/neokids.png'),
+      'Neo Kids formulates natural supplements for children and adults, powered by medicinal herbs, mushrooms, vitamins, trace elements, and minerals.',
+    ctaLabel: 'Explore brand',
+    logo: withBase('logos/neokids.png'),
   },
   {
     id: 'rokivit',
     name: 'Rokivit',
     category: 'Pharmaceutical products from Rokitan',
     description:
-      'Rokivit develops healthcare products in defined therapeutic areas, pursuing new formulations and market reach to meet evolving patient needs.',
-    ctaLabel: 'View products',
+      'Rokivit develops healthcare products in clearly defined therapeutic areas, pushing new formulations and entering new markets.',
+    ctaLabel: 'Explore brand',
+    logo: withBase('logos/rokivit.png'),
   },
   {
     id: 'multi-gyn',
     name: 'Multi-Gyn',
     category: 'Get back to brilliant with Multi-Gyn',
     description:
-      'From odor to itch, dryness to discharge, Multi-Gyn’s natural-based range eases vaginal discomfort from common infections like BV and thrush—fast.',
-    ctaLabel: 'View products',
+      'Multi-Gyn delivers natural-based products clinically proven to reduce vaginal discomfort from BV, thrush, dryness, itch, and odor.',
+    ctaLabel: 'Explore brand',
+    logo: withBase('logos/multigyn.png'),
   },
   {
     id: '7days',
@@ -70,7 +73,7 @@ const partners: PartnerEntry[] = [
     category: 'Cosmetics brand',
     description:
       '7DAYS is a playful cosmetics trendsetter beloved for its bold concepts, eye-catching design, product quality, and transparent mindset.',
-    ctaLabel: 'View products',
+    ctaLabel: 'Explore brand',
     logo: withBase('brands/7days.png'),
   },
   {
@@ -78,34 +81,36 @@ const partners: PartnerEntry[] = [
     name: 'Mentholatum',
     category: 'Healthcare products',
     description:
-      'Mentholatum is a specialized global company delivering effective, innovative, and accessible products that improve health and wellness worldwide.',
-    ctaLabel: 'View products',
+      'Mentholatum is a specialized global company improving health and wellness with effective, innovative, and accessible products.',
+    ctaLabel: 'Explore brand',
+    logo: withBase('logos/mentholatum.png'),
   },
   {
     id: 'officina',
     name: 'Officina Naturae',
     category: 'Cosmetics and detergents',
     description:
-      'Officina naturae designs excellent, truly effective cosmetics and detergents that are safe for people and nature alike.',
-    ctaLabel: 'View products',
-    logo: withBase('brands/officina_naturae.png'),
+      'Officina naturae designs excellent and truly effective cosmetics and detergents that remain safe for people and nature.',
+    ctaLabel: 'Explore brand',
+    logo: withBase('logos/officina_naturae.png'),
   },
   {
     id: 'balene',
     name: 'Balene',
     category: 'Advanced cleaning technology',
     description:
-      'Balene improves dental hygiene outcomes with a more effective brush design that reduces user error and elevates daily care routines.',
-    ctaLabel: 'View products',
+      'Balene elevates dental hygiene through an advanced brush design that improves effectiveness and limits user error.',
+    ctaLabel: 'Explore brand',
+    logo: withBase('logos/balene.png'),
   },
   {
     id: 'vitamunda',
     name: 'Vitamunda',
     category: 'High quality nutritional supplements',
     description:
-      'Vitamunda formulates supplements that help the body function optimally while supporting its natural recovery processes.',
-    ctaLabel: 'View products',
-    logo: withBase('brands/vitamunda.png'),
+      'Vitamunda’s high-quality supplements facilitate optimal body function while bolstering natural recovery.',
+    ctaLabel: 'Explore brand',
+    logo: withBase('logos/vitamunda.png'),
   },
 ];
 
@@ -142,7 +147,7 @@ const homeUrl = import.meta.env.BASE_URL ?? '/';
       {partners.map((partner) => (
         <article class="rounded-3xl border border-black/5 bg-white/90 p-6 shadow-sm backdrop-blur-sm">
           <div class="flex items-start gap-4">
-            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--page)] p-2">
+            <div class="partner-logo flex h-20 w-20 items-center justify-center rounded-3xl bg-white p-2 shadow-sm">
               {partner.logo ? (
                 <img src={partner.logo} alt={`${partner.name} logo`} class="h-full w-full object-contain" />
               ) : (

@@ -38,9 +38,9 @@ const servicesPageUrl = withBase('services/');
           <a href="#benefits" class="hover:text-[var(--slate)]">Capabilities</a>
           <a href="#partners" class="hover:text-[var(--slate)]">Partners</a>
           <a href="#blog" class="hover:text-[var(--slate)]">Blog</a>
-          <a href="#contact" class="hover:text-[var(--slate)]">Contact</a>
+          <a href={withBase('contact/')} class="hover:text-[var(--slate)]">Contact</a>
         </nav>
-        <a href="#contact" class="rounded-full border border-[var(--slate)] px-5 py-2 text-[var(--slate)]">Work with us</a>
+        <a href={withBase('contact/')} class="rounded-full border border-[var(--slate)] px-5 py-2 text-[var(--slate)]">Work with us</a>
       </div>
     </header>
 
@@ -72,7 +72,7 @@ const servicesPageUrl = withBase('services/');
             </div>
             <div class="flex flex-wrap gap-4">
               <a href="#about" class="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0f1933]">Discover Galaxy</a>
-              <a href="#contact" class="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white">Talk to us</a>
+              <a href={withBase('contact/')} class="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white">Talk to us</a>
             </div>
           </div>
           <div class="glow-card rounded-[2rem] p-6 text-[var(--slate)]">
@@ -241,7 +241,7 @@ const servicesPageUrl = withBase('services/');
               View partner directory
               <span aria-hidden="true">→</span>
             </a>
-            <a href="#contact" class="inline-flex items-center gap-2">
+            <a href={withBase('contact/')} class="inline-flex items-center gap-2">
               Become a partner
               <span aria-hidden="true">→</span>
             </a>
@@ -253,7 +253,7 @@ const servicesPageUrl = withBase('services/');
             return (
             <article class="glow-card flex flex-col gap-4 rounded-3xl p-6" key={partner.id}>
               <div class="flex items-center gap-4">
-                <div class="partner-logo flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--page)] p-3">
+                <div class="partner-logo flex h-20 w-20 items-center justify-center rounded-3xl bg-white p-2 shadow-sm">
                   {logoSrc && <img src={logoSrc} alt={`${partner.data.name} logo`} class="h-full w-full object-contain" />}
                 </div>
                 <div>
