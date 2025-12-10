@@ -1,0 +1,18 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-clinical-overview-real-cases-thumb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#143d3c"/>
+      <stop offset="100%" stop-color="#37d3a7"/>
+    </linearGradient>
+    <pattern id="grid-clinical-overview-real-cases-thumb" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="url(#grad-clinical-overview-real-cases-thumb)" rx="24"/>
+  <rect width="640" height="360" fill="url(#grid-clinical-overview-real-cases-thumb)" rx="24" opacity="0.4"/>
+  <circle cx="480.0" cy="90.0" r="54.0" fill="rgba(255,255,255,0.12)"/>
+  <circle cx="128.0" cy="288.0" r="64.8" fill="rgba(255,255,255,0.08)"/>
+  <text x="40" y="170.0" fill="white" font-family="'Space Grotesk', 'Arial', sans-serif" font-size="46.800000000000004" font-weight="600">Clinical Overview</text>
+  <text x="40" y="216.0" fill="white" font-family="'Space Grotesk', 'Arial', sans-serif" font-size="28.8" opacity="0.85">May 25, 2025 · Hybrid</text>
+  <text x="40" y="320" fill="white" font-family="'Space Grotesk', 'Arial', sans-serif" font-size="21.599999999999998" opacity="0.8">Galaxy Pharmaceuticals</text>
+</svg>

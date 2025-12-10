@@ -47,4 +47,23 @@ const brands = defineCollection({
   }),
 });
 
-export const collections = { blog, partners, brands };
+const press = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    publishDate: z.date(),
+    location: z.string(),
+    thumbnail: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    banner: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    highlights: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { blog, partners, brands, press };

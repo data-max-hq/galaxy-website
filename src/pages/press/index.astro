@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const pressEntries = (await getCollection('press')).sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+);
+
+const latest = pressEntries[0];
+const base = import.meta.env.BASE_URL ?? '/';
+const withBase = (path: string) => `${base}${path.replace(/^\/+/, '')}`;
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(date);
+---
+
+<Layout
+  title="Galaxy Press Center"
+  description="Conference recaps, press releases, and field notes from Galaxy Pharmaceutical Distribution."
+  showGlobalNav={true}
+>
+  <main class="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-16">
+    <section class="grid gap-10 rounded-3xl border border-black/5 bg-white/90 p-8 shadow-sm backdrop-blur md:grid-cols-2" data-animate>
+      <div class="space-y-6">
+        <div class="space-y-4">
+          <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--muted)]">Press releases & updates</p>
+          <h1 class="text-4xl font-semibold text-[var(--slate)] sm:text-5xl">Galaxy Press Center</h1>
+          <p class="text-lg text-[var(--muted)]">
+            Follow Galaxy’s presence across national and regional conferences. Every recap captures the insights shared,
+            operational highlights, and signals for future collaboration.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div class="rounded-2xl border border-black/5 bg-white/80 p-4 text-sm shadow-sm">
+            <p class="text-[var(--muted)]">Total releases</p>
+            <p class="mt-1 text-2xl font-semibold text-[var(--slate)]">{pressEntries.length}</p>
+          </div>
+          <div class="rounded-2xl border border-black/5 bg-white/80 p-4 text-sm shadow-sm">
+            <p class="text-[var(--muted)]">Latest update</p>
+            <p class="mt-1 text-2xl font-semibold text-[var(--slate)]">
+              {latest ? formatDate(latest.data.publishDate) : 'Coming soon'}
+            </p>
+          </div>
+          <div class="rounded-2xl border border-black/5 bg-white/80 p-4 text-sm shadow-sm">
+            <p class="text-[var(--muted)]">Regions</p>
+            <p class="mt-1 text-2xl font-semibold text-[var(--slate)]">Albania-wide</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-3 text-sm font-semibold">
+          <a
+            href={withBase('press/')}
+            class="inline-flex items-center gap-2 rounded-full border border-[var(--slate)] px-5 py-2 text-[var(--slate)] transition hover:bg-[var(--slate)] hover:text-white"
+          >
+            View full archive
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href={`${base}#contact`}
+            class="inline-flex items-center gap-2 rounded-full border border-black/10 px-5 py-2 text-[var(--muted)] hover:text-[var(--slate)]"
+          >
+            Contact media team
+          </a>
+        </div>
+      </div>
+      {latest && (
+        <figure class="overflow-hidden rounded-3xl border border-black/5 bg-[var(--page)]">
+          <img src={withBase(latest.data.banner.src)} alt={latest.data.banner.alt} width="800" height="320" loading="lazy" />
+          <figcaption class="bg-[var(--slate)]/90 px-6 py-4 text-sm text-white">
+            <p class="font-semibold">{latest.data.title}</p>
+            <p class="text-white/80">{latest.data.location}</p>
+          </figcaption>
+        </figure>
+      )}
+    </section>
+
+    <section class="grid gap-6 md:grid-cols-2" data-animate>
+      {pressEntries.map((entry) => (
+        <article class="flex flex-col overflow-hidden rounded-3xl border border-black/5 bg-white/90 shadow-sm">
+          <img
+            src={withBase(entry.data.thumbnail.src)}
+            alt={entry.data.thumbnail.alt}
+            width="640"
+            height="360"
+            loading="lazy"
+            class="h-auto w-full"
+          />
+          <div class="flex flex-1 flex-col gap-4 p-6">
+            <p class="flex flex-wrap items-center gap-2 text-sm text-[var(--muted)]">
+              <span>{formatDate(entry.data.publishDate)}</span>
+              <span aria-hidden="true">•</span>
+              <span>{entry.data.location}</span>
+            </p>
+            <h2 class="text-2xl font-semibold text-[var(--slate)]">{entry.data.title}</h2>
+            <p class="text-[var(--muted)]">{entry.data.description}</p>
+            {entry.data.highlights.length > 0 && (
+              <ul class="list-disc space-y-2 pl-5 text-sm text-[var(--muted)]">
+                {entry.data.highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+            )}
+            <a
+              href={withBase(`press/${entry.slug}/`)}
+              class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]"
+            >
+              Read more
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </section>
+  </main>
+</Layout>
