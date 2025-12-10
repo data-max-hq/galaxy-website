@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const jobColumns = ['Job Posting Title', 'Location', 'Department', 'Date'];
+---
+
+<Layout
+  title="Galaxy Careers"
+  description="Join Galaxy and co-create the next decade of pharmaceutical distribution in Albania."
+  showGlobalNav
+>
+  <main class="mx-auto max-w-5xl space-y-10 px-6 py-16">
+    <section class="space-y-5" data-animate>
+      <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--muted)]">Careers</p>
+      <h1 class="text-4xl font-semibold text-[var(--slate)] sm:text-5xl">Build patient impact with a passionate team.</h1>
+      <p class="text-lg text-[var(--muted)]">
+        Are you looking for a company with enthusiastic, passionate people who love what they do? Do you want to work with
+        the best in the market? At Galaxy, part of Profarma Group, you will find more than a job—you’ll explore, grow, and
+        build the future alongside colleagues whose ambition matches our vision.
+      </p>
+      <p class="text-lg text-[var(--muted)]">
+        If you are ambitious and ready to reach your goals with us, this is the right place for you.
+      </p>
+    </section>
+
+    <section class="rounded-3xl border border-black/5 bg-white/90 p-6 shadow-sm" data-animate>
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <h2 class="text-2xl font-semibold text-[var(--slate)]">Open positions</h2>
+        <p class="text-sm text-[var(--muted)]">We update this list as new roles become available.</p>
+      </div>
+      <div class="mt-6 overflow-x-auto rounded-2xl border border-black/5">
+        <table class="min-w-full divide-y divide-black/5 text-sm">
+          <thead class="bg-[var(--page)]">
+            <tr>
+              {jobColumns.map((column) => (
+                <th class="px-4 py-3 text-left font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">{column}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colSpan={jobColumns.length} class="px-4 py-8 text-center text-[var(--muted)]">
+                No Results Found
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</Layout>

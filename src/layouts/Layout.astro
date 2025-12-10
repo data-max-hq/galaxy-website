@@ -15,13 +15,26 @@ const {
 } = Astro.props as Props;
 
 const base = import.meta.env.BASE_URL ?? '/';
+const historyUrl = `${base}history/`;
+const servicesUrl = `${base}services/`;
+const contactUrl = `${base}contact/`;
+const careersUrl = `${base}careers/`;
+
 const navLinks = [
 	{ label: 'Home', href: base },
-	{ label: 'About', href: `${base}#about` },
+	{
+		label: 'About',
+		href: `${base}#about`,
+		children: [
+			{ label: 'Company history', href: historyUrl },
+			{ label: 'Our services', href: servicesUrl },
+			{ label: 'Careers', href: careersUrl },
+		],
+	},
 	{ label: 'Capabilities', href: `${base}#benefits` },
 	{ label: 'Partners', href: `${base}#partners` },
 	{ label: 'Blog', href: `${base}#blog` },
-	{ label: 'Contact', href: `${base}contact/` },
+	{ label: 'Contact', href: contactUrl },
 ];
 ---
 
@@ -51,12 +64,23 @@ const navLinks = [
 					<a href={base} class="flex items-center gap-3 text-[var(--slate)]">
 						<img src={Logo.src} width="120" height="40" alt="Galaxy logo" class="h-10 w-auto" />
 					</a>
-					<nav class="flex flex-wrap items-center gap-4">
-						{navLinks.map((link) => (
+				<nav class="flex flex-wrap items-center gap-4">
+					{navLinks.map((link) => (
+						<div class={`relative ${link.children ? 'group' : ''}`}>
 							<a href={link.href} class="hover:text-[var(--slate)]">{link.label}</a>
-						))}
-					</nav>
-					<a href={`${base}contact/`} class="rounded-full border border-[var(--slate)] px-4 py-2 text-[var(--slate)]">
+							{link.children && (
+								<div class="invisible absolute left-0 top-full z-10 mt-2 min-w-[220px] rounded-2xl border border-black/5 bg-white p-3 text-sm text-[var(--muted)] opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+									{link.children.map((child) => (
+										<a href={child.href} class="block rounded-xl px-3 py-2 hover:bg-[var(--page)] hover:text-[var(--slate)]">
+											{child.label}
+										</a>
+									))}
+								</div>
+							)}
+						</div>
+					))}
+				</nav>
+				<a href={`${base}contact/`} class="rounded-full border border-[var(--slate)] px-4 py-2 text-[var(--slate)]">
 						Work with us
 					</a>
 				</div>
